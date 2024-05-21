@@ -5,14 +5,13 @@ import '../../utility/size_config.dart';
 import '../Utility/constant.dart';
 import '../app_routes.dart';
 import '../theme/navigator.dart';
- import '../utility/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
-}
+
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
@@ -45,9 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _setNavigation() async {
-    String userId = await UserPreferences.getDoctorId();
-    // String staffId = await UserPreferences.getStaffId();
-    String adminId = await UserPreferences.getAdminId();
+    var userId = "";
     String route;
     if (userId.isEmpty) {
       route = AppRoutes.profileRoute;

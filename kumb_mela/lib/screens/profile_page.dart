@@ -6,7 +6,7 @@ import 'package:kumb_mela/theme/padding.dart';
 
 import '../Utility/constant.dart';
 import '../theme/text_style.dart';
-import '../widgets/get_circle_avatar.dart';
+import '../utility/get_circle_avatar.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

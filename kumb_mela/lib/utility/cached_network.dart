@@ -1,60 +1,41 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../utility/constant.dart';
-import 'add_ons.dart';
+import '../Utility/constant.dart';
+ import 'get_circle_avatar.dart';
 
-class WidgetCachedImage extends StatelessWidget {
+class WidgetCachedNetwork extends StatelessWidget {
   final String? url;
   final String urlPrefix;
-  final double? width;
-  final double? height;
+  final double size;
   final BoxFit? fit;
   final String? placeHolderPath;
   final bool showProgress;
 
-  const WidgetCachedImage({
-    super.key,
-    this.url,
-    this.width,
-    this.height,
-    this.fit,
-    this.placeHolderPath,
-    this.showProgress = true,
-    this.urlPrefix = "",
-  });
+  const WidgetCachedNetwork(
+      {super.key, this.url, this.urlPrefix = "", required this.size, this.fit, this.placeHolderPath, this.showProgress = true});
 
   @override
   Widget build(BuildContext context) {
     if (checkNull(url)) {
       return CachedNetworkImage(
-        height: width,
-        width: height,
+        height: size,
+        width: size,
         imageUrl: "$urlPrefix$url",
         fit: fit ?? BoxFit.cover,
-        progressIndicatorBuilder: showProgress
-            ? (context, url, downloadProgress) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircularProgressIndicator(value: downloadProgress.progress),
-                  ],
-                );
-              }
-            : null,
         errorWidget: (context, url, error) {
           return Image.asset(
             placeHolderPath ?? Assets.icUserPlaceHolder,
-            height: height,
-            width: width,
+            height: size,
+            width: size,
           );
         },
       );
     } else {
       return Image.asset(
         placeHolderPath ?? Assets.icUserPlaceHolder,
-        height: width,
-        width: width,
+        height: size,
+        width: size,
       );
     }
   }

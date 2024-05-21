@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kumb_mela/utils/size_config.dart';
+import 'package:kumb_mela/utility/size_config.dart';
 
 import '../theme/navigator.dart';
 import 'app_routes.dart';

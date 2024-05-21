@@ -36,9 +36,8 @@ class SizeConfig {
     _safeAreaHorizontal = _mediaQueryData.padding.left + _mediaQueryData.padding.right;
     _safeAreaVertical = _mediaQueryData.padding.top + _mediaQueryData.padding.bottom;
 
-    safeBlockHorizontal = isPortraitOrientation
-        ? (screenWidth - _safeAreaHorizontal) / 100
-        : (screenHeight - _safeAreaVertical) / 100;
+    safeBlockHorizontal =
+        isPortraitOrientation ? (screenWidth - _safeAreaHorizontal) / 100 : (screenHeight - _safeAreaVertical) / 100;
     // safeBlockHorizontal  = 4.0;
     safeBlockVertical = (screenHeight - _safeAreaVertical) / 100;
 

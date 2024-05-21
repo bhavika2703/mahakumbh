@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../colors/light_colors.dart';
 import '../../theme/padding.dart';
-import '../Utility/constant.dart';
-import '../utility/add_ons.dart';
 import 'cached_network.dart';
+import 'constant.dart';
 
 class GetCircleAvatar extends StatelessWidget {
   final String? urlPrefix;
@@ -77,4 +76,7 @@ class GetCircleAvatar extends StatelessWidget {
       placeHolderPath: placeHolderPath ?? Assets.icUserPlaceHolder,
     );
   }
+}
+bool checkNull(var s) {
+  return s != null && s.toString().trim().isNotEmpty;
 }
