@@ -1,0 +1,94 @@
+name: kumb_mela
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.1+2
+
+environment:
+  sdk: '>=3.2.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  http: ^1.1.0
+  #  in_app_update: ^4.0.1
+  #  cupertino_icons: ^1.0.2
+  flutter_typeahead: ^4.6.1 #auto complete search in staff menu page
+
+
+
+  page_transition: ^2.0.4
+  dropdown_button2: ^1.9.3
+  shared_preferences: ^2.0.9
+
+
+
+  overlay_support: ^2.1.0
+
+
+
+
+
+
+
+  cached_network_image: ^3.3.0
+  intl: ^0.19.0
+  google_fonts: ^5.1.0
+  permission_handler: ^11.0.1
+  fluttertoast: ^8.0.9
+  #  timetable_view: ^0.3.0
+  date_picker_timeline: ^1.2.5
+  #  package_info_plus: ^4.0.2
+  image_picker: ^0.8.5+3
+  #  path_provider: ^2.0.10
+
+  loading_animation_widget: ^1.2.0+4
+
+  open_filex: ^4.3.2
+  dio: ^4.0.5
+
+
+
+
+
+  html: ^0.15.4
+
+  url_launcher: ^6.2.1
+
+  intl_phone_field: ^3.2.0
+  dotted_border: any
+  flutter_rating_bar: ^4.0.1
+  flutter_otp_text_field: ^1.1.1
+  persistent_bottom_nav_bar_v2: ^5.2.3
+#  persistent_bottom_nav_bar: ^5.0.2
+
+
+
+
+
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+#    - assets/logo/
+#    - assets/icon/
+    - assets/drawer_icon/
+#    - assets/audio/
+
