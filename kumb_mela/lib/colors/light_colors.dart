@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../theme/padding.dart';
 
+const Color appBlue = Color(0xFF0054E5);
+
 // Color kPrimaryColor = const Color(0xff106467);
 // Color kPrimaryColor = const Color(0xff24695c);
 Color kPrimaryColor = const Color(0xff0D41E1);
@@ -9,13 +11,13 @@ Color kPrimaryColor = const Color(0xff0D41E1);
 Color kPrimaryColor3 = const Color(0xCCEBF8FF);
 Color kPrimaryDarkColor = const Color(0xff17443c);
 const kPrimaryColor1 = Color(0xFFE9F0F9);
-
+const kgrey = Color(0xFF3A3A3A);
 const kSecondaryColor = Color(0xffeef6f8);
 const kPrimaryGradient3 = Color(0xffd6e7ff);
 // const kPrimaryBGColor = Color(0xffD4E8FF);
 const kPrimaryBGColor = Color(0xffEAF2FA);
 const kPrimaryColor2 = Color(0xffD4E8FF);
-
+const KGrey = Color(0xFF6C6C6C);
 const kWhiteColor = Color(0xffffffff);
 const kFedColor = Color(0xff91ABC7);
 const kPageBgColor = Color(0xffffffff);
@@ -108,8 +110,10 @@ const kTransparentColor = Colors.transparent;
 const kBridgwillSplashBgColor = Color(0xff151241);
 const kBachpanJayalBgColor = Color(0xffb61617);
 const kBachpanMarthaBgColor = Color(0xffffb3b3);
+const DescriptionGreyColor = Color.fromRGBO(179, 179, 179, 1);
 
-final kBoxShadow = BoxShadow(color: kGreyColor3, offset: const Offset(1, 3), blurRadius: 8);
+final kBoxShadow =
+    BoxShadow(color: kGreyColor3, offset: const Offset(1, 3), blurRadius: 8);
 
 final kBoxShadow2 = BoxShadow(
   color: kGreyColor6.withOpacity(0.3),
@@ -126,14 +130,16 @@ BoxDecoration kBoxDecoration({Color? color, double? radius, BoxShape? shape}) {
   );
 }
 
-final kCardShadow = BoxShadow(color: Colors.grey.shade300, offset: const Offset(0, 3), blurRadius: 5);
+final kCardShadow = BoxShadow(
+    color: Colors.grey.shade300, offset: const Offset(0, 3), blurRadius: 5);
 
 Widget kBottomSheetHorizontalLine({color}) {
   return Container(
     margin: kEdgeInsetsSymmetricHV(v: 2),
     width: kSize(12),
     height: kSize(1),
-    decoration: BoxDecoration(borderRadius: kBorderRadius(15), color: color ?? kGreyColor5),
+    decoration: BoxDecoration(
+        borderRadius: kBorderRadius(15), color: color ?? kGreyColor5),
   );
 }
 

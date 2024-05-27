@@ -11,15 +11,15 @@ import 'package:kumb_mela/utility/size_config.dart';
 import 'package:kumb_mela/utility/widgets/app_constant.dart';
 import 'package:kumb_mela/utility/widgets/custom_fields/custom_text_field.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class ConfirmPassword extends StatefulWidget {
+  const ConfirmPassword({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<ConfirmPassword> createState() => _ConfirmPasswordState();
 }
 
-class _LoginState extends State<Login> {
-  final _nameController = TextEditingController();
+class _ConfirmPasswordState extends State<ConfirmPassword> {
+  final _confirmpasswordController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formGlobalKey = GlobalKey<FormState>();
   bool _isProgress = false;
@@ -54,31 +54,28 @@ class _LoginState extends State<Login> {
                               height: MediaQuery.of(context).size.height / 8,
                             ),
                             // CircleAvatar(
-                            //   backgroundImage: AssetImage(Assets.icLoginImage),
+                            //   backgroundImage: AssetImage(Assets.icConfirmPasswordImage),
                             //   radius: 70.0,
                             // ),
-
-                            Padding(
-                              padding: kEdgeInsetsAll(2),
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Center(
-                                  child: Image.asset(
-                                    Assets.logo,
-                                  ),
-                                ),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: IconButton(
+                                icon: Icon(Icons.arrow_back),
+                                color: Colors.grey,
+                                onPressed: () {
+                                  Navigator.pop(
+                                      context); // Navigate back to the previous screen
+                                },
                               ),
                             ),
                             Padding(
                               padding: kEdgeInsetsAll(3),
                               child: Align(
                                 alignment: Alignment.centerLeft,
-                                child: Center(
-                                  child: Text("Hey,Hello",
-                                      style: kMediumBlackTextStyle().apply(
-                                          fontSizeDelta: 10,
-                                          color: kBlueGreyColor4)),
-                                ),
+                                child: Text("Create New Password",
+                                    style: kMediumBlackTextStyle().apply(
+                                        fontSizeDelta: 10,
+                                        color: kBlueGreyColor4)),
                               ),
                             ),
                             Padding(
@@ -87,7 +84,7 @@ class _LoginState extends State<Login> {
                                 alignment: Alignment.centerLeft,
                                 child: Center(
                                   child: Text(
-                                      "Before you begin, let's ensure it's you.",
+                                      "This password should be different for this previous password",
                                       style: kMediumBlackTextStyle().apply(
                                           fontSizeDelta: 1,
                                           color: DescriptionGreyColor)),
@@ -98,14 +95,15 @@ class _LoginState extends State<Login> {
 
                             CustomTextField(
                                 bgColor: kBlackColor,
-                                controller: _nameController,
+                                controller: _confirmpasswordController,
+                                keyboardType: TextInputType.visiblePassword,
                                 suffixIcon: IconButton(
                                   icon: const Icon(Icons.person_3_rounded),
                                   onPressed: () {},
                                 ),
                                 // labelText: "UserName",
                                 isMandatory: true,
-                                hintText: "Mobile Number /Email"),
+                                hintText: "Enter new password"),
                             kSizedBox(height: 5),
                             CustomTextField(
                               bgColor: kBlackColor,
@@ -119,45 +117,25 @@ class _LoginState extends State<Login> {
                               controller: _passwordController,
                               // labelText: "Password",
                               isMandatory: true,
-                              hintText: ' Password',
+                              hintText: ' Confirm new password',
                             ),
                             kSizedBox(height: 2),
-                            _buildRememberMeRow(context),
+                            Column(
+                              children: [
+                                _buildRememberMeRow(context),
+                                tick2(context),
+                                tick3(context),
+                              ],
+                            ),
                             kSizedBox(height: 5),
                             CustomButton(
-                                title: AppConstant.loginButtonText,
+                                title: AppConstant.ConfirmPasswordButtonText,
                                 onPressed: () {
                                   if (_formGlobalKey.currentState!.validate()) {
-                                    login();
+                                    ConfirmPassword();
                                   }
                                 }),
                             kSizedBox(height: 3),
-                            Text(
-                              "Or",
-                              style: kMediumBlackTextStyle()
-                                  .apply(color: DescriptionGreyColor),
-                            ),
-                            kSizedBox(height: 6),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 85),
-                                  child: Text(
-                                    "Don't have an account? ",
-                                    style: kMediumBlackTextStyle()
-                                        .apply(color: DescriptionGreyColor),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Text(
-                                    "Register",
-                                    style: kMediumBlackTextStyle()
-                                        .apply(color: kBlueColor),
-                                  ),
-                                )
-                              ],
-                            )
                           ],
                         ),
                       ),
@@ -165,10 +143,10 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 // CustomButton(
-                //     title: AppConstant.loginButtonText,
+                //     title: AppConstant.ConfirmPasswordButtonText,
                 //     onPressed: () {
                 //       if (_formGlobalKey.currentState!.validate()) {
-                //         login();
+                //         ConfirmPassword();
                 //       }
                 //     }),
               ],
@@ -188,14 +166,14 @@ class _LoginState extends State<Login> {
     );
   }
 
-  void login() async {
+  void ConfirmPassword() async {
     var model = {
-      "username": _nameController.text,
+      "username": _confirmpasswordController.text,
       "password": _passwordController.text
     };
     setProgress(true);
     // try {
-    //   final response = await KhumabMelaApis.login(model);
+    //   final response = await KhumabMelaApis.ConfirmPassword(model);
     //   setProgress(false);
     //   if (response.statusCode == 200) {
     //     var map = jsonDecode(response.body);
@@ -227,8 +205,6 @@ class _LoginState extends State<Login> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-            // color: Colors.white, // Black background for the entire screen
-
             child: Checkbox(
               fillColor: MaterialStateProperty.resolveWith((states) {
                 if (states.contains(MaterialState.selected)) {
@@ -237,11 +213,7 @@ class _LoginState extends State<Login> {
                 return Colors.white; // Color when checkbox is unchecked
               }),
               checkColor: Colors
-                  .black, // The color of the check icon when the checkbox is checked
-
-              // activeColor:
-              //     Colors.white, // The color of the checkbox when it's checked
-              // checkColor: Colors.black,
+                  .blue, // The color of the check icon when the checkbox is checked
               value: _rememberMe,
               onChanged: (value) {
                 setState(() {
@@ -255,7 +227,7 @@ class _LoginState extends State<Login> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Center(
-                child: Text("Remember me",
+                child: Text("At least 8 characters",
                     style: kMediumBlackTextStyle()
                         .apply(color: DescriptionGreyColor)),
               ),
@@ -267,7 +239,111 @@ class _LoginState extends State<Login> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Center(
-                child: Text("Forgot Password?",
+                child: Text("",
+                    style: kMediumBlackTextStyle()
+                        .apply(color: DescriptionGreyColor)),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget tick2(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 2),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            child: Checkbox(
+              fillColor: MaterialStateProperty.resolveWith((states) {
+                if (states.contains(MaterialState.selected)) {
+                  return Colors.white; // Color when checkbox is checked
+                }
+                return Colors.white; // Color when checkbox is unchecked
+              }),
+              checkColor: Colors
+                  .blue, // The color of the check icon when the checkbox is checked
+              value: _rememberMe,
+              onChanged: (value) {
+                setState(() {
+                  _rememberMe = value!;
+                });
+              },
+            ),
+          ),
+          Padding(
+            padding: kEdgeInsetsAll(1),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Center(
+                child: Text("At least 1 number",
+                    style: kMediumBlackTextStyle()
+                        .apply(color: DescriptionGreyColor)),
+              ),
+            ),
+          ),
+          const Spacer(),
+          Padding(
+            padding: kEdgeInsetsAll(2),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Center(
+                child: Text("",
+                    style: kMediumBlackTextStyle()
+                        .apply(color: DescriptionGreyColor)),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget tick3(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 2),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            child: Checkbox(
+              fillColor: MaterialStateProperty.resolveWith((states) {
+                if (states.contains(MaterialState.selected)) {
+                  return Colors.white; // Color when checkbox is checked
+                }
+                return Colors.white; // Color when checkbox is unchecked
+              }),
+              checkColor: Colors
+                  .blue, // The color of the check icon when the checkbox is checked
+              value: _rememberMe,
+              onChanged: (value) {
+                setState(() {
+                  _rememberMe = value!;
+                });
+              },
+            ),
+          ),
+          Padding(
+            padding: kEdgeInsetsAll(1),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Center(
+                child: Text("Both upper and lower case letter",
+                    style: kMediumBlackTextStyle()
+                        .apply(color: DescriptionGreyColor)),
+              ),
+            ),
+          ),
+          const Spacer(),
+          Padding(
+            padding: kEdgeInsetsAll(2),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Center(
+                child: Text("",
                     style: kMediumBlackTextStyle()
                         .apply(color: DescriptionGreyColor)),
               ),
