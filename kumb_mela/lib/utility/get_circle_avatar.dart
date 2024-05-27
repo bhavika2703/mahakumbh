@@ -77,6 +77,7 @@ class GetCircleAvatar extends StatelessWidget {
     );
   }
 }
+
 bool checkNull(var s) {
   return s != null && s.toString().trim().isNotEmpty;
 }

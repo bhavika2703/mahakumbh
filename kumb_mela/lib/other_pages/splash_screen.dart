@@ -1,10 +1,10 @@
-// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
 import '../../utility/size_config.dart';
 import '../Utility/constant.dart';
 import '../app_routes.dart';
 import '../theme/navigator.dart';
+import '../utility/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,48 +14,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    // PushNotificationsManager.registerNotification();
-
-    // PushNotificationsManager.registerNotification().then((value) {
-    //   FlutterError.onError = (errorDetails) {
-    //     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-    //   };
-    //   // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
-    //   PlatformDispatcher.instance.onError = (error, stack) {
-    //     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    //     return true;
-    //   };
-    // });
-
-    init();
-    super.initState();
-  }
-
-  Future<void> init() async {
-    // WidgetsFlutterBinding.ensureInitialized();
-    // await Firebase.initializeApp();
-    //initialize storage provider
-    // String packageName = await Customization.getPackageName();
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   Provider.of<StorageProvider>(context, listen: false).setPackageName(packageName);
-    // });
-  }
-
   Future<void> _setNavigation() async {
-    var userId = "";
+    String userId = await UserPreferences.getUserId();
+
     String route;
-    if (userId.isEmpty) {
-      route = AppRoutes.profileRoute;
-    } else if (userId.isNotEmpty) {
-      route = AppRoutes.profileRoute;
-    }
-    /* else if (adminId.isNotEmpty) {
-      route = AppRoutes.adminDashBoardRoute;
-    } */
-    else {
-      route = AppRoutes.profileRoute;
+
+    // if (studentId.isEmpty && staffId.isEmpty && adminId.isEmpty) {
+    // } else if (studentId.isNotEmpty) {
+    //   route = AppRoutes.stdHomePageRoute;
+    if (userId.isNotEmpty) {
+      route = AppRoutes.registerPageRoute;
+    } else {
+      route = AppRoutes.forgotPasswordRoute;
     }
     navigatePage(route);
   }

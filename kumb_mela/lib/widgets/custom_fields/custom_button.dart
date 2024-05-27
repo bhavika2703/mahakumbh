@@ -18,9 +18,10 @@ class CustomButton extends StatelessWidget {
       child: Container(
         padding: kEdgeInsetsSymmetricHV(v: 3),
         decoration: BoxDecoration(
-            color: kPrimaryColor,
+            color: kPrimaryOrangeColor,
             borderRadius: kBorderRadius(5),
-            boxShadow: const [BoxShadow(offset: Offset(3, 5), color: kBlackColor, blurRadius: 12, spreadRadius: 3)]),
+            // boxShadow: const [BoxShadow(offset: Offset(3, 5), color: kBlackColor, blurRadius: 12, spreadRadius: 3)]
+        ),
         alignment: Alignment.center,
         child: Text(
           title,

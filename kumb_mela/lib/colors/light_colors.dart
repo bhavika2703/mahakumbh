@@ -7,6 +7,10 @@ const Color appBlue = Color(0xFF0054E5);
 // Color kPrimaryColor = const Color(0xff106467);
 // Color kPrimaryColor = const Color(0xff24695c);
 Color kPrimaryColor = const Color(0xff0054E5);
+Color kPrimaryOrangeColor = const Color(0xffDD851D);
+// Color kPrimaryBackColor = [Colors.blue, Colors.red];
+const kPrimaryGradient = LinearGradient(
+    colors: [const Color(0xff0054E5), const Color(0xff0054E5)], begin: Alignment.topCenter, end: Alignment.bottomCenter);
 // Color kPrimaryColor2 = const Color(0xff60a89b);
 Color kPrimaryColor3 = const Color(0xCCEBF8FF);
 Color kPrimaryDarkColor = const Color(0xff17443c);
@@ -114,8 +118,7 @@ const kBachpanJayalBgColor = Color(0xffb61617);
 const kBachpanMarthaBgColor = Color(0xffffb3b3);
 const DescriptionGreyColor = Color.fromRGBO(179, 179, 179, 1);
 
-final kBoxShadow =
-    BoxShadow(color: kGreyColor3, offset: const Offset(1, 3), blurRadius: 8);
+final kBoxShadow = BoxShadow(color: kGreyColor3, offset: const Offset(1, 3), blurRadius: 8);
 
 final kBoxShadow2 = BoxShadow(
   color: kGreyColor6.withOpacity(0.3),
@@ -132,16 +135,23 @@ BoxDecoration kBoxDecoration({Color? color, double? radius, BoxShape? shape}) {
   );
 }
 
-final kCardShadow = BoxShadow(
-    color: Colors.grey.shade300, offset: const Offset(0, 3), blurRadius: 5);
+BoxDecoration kGradientBoxDecoration({Color? color, double? radius, BoxShape? shape}) {
+  return const BoxDecoration(
+      gradient: LinearGradient(
+    colors: [kBlackColor, kGreyColor],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  ));
+}
+
+final kCardShadow = BoxShadow(color: Colors.grey.shade300, offset: const Offset(0, 3), blurRadius: 5);
 
 Widget kBottomSheetHorizontalLine({color}) {
   return Container(
     margin: kEdgeInsetsSymmetricHV(v: 2),
     width: kSize(12),
     height: kSize(1),
-    decoration: BoxDecoration(
-        borderRadius: kBorderRadius(15), color: color ?? kGreyColor5),
+    decoration: BoxDecoration(borderRadius: kBorderRadius(15), color: color ?? kGreyColor5),
   );
 }
 

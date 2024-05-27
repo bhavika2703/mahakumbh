@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:kumb_mela/colors/light_colors.dart';
 import 'package:kumb_mela/theme/padding.dart';
 import 'package:kumb_mela/theme/text_field_theme_data.dart';
@@ -89,10 +88,7 @@ class CustomTextField extends StatelessWidget {
       children: [
         labelText != null ? _label(labelText.toString()) : Container(),
         Theme(
-          data: textFieldThemeData(
-              radius: borderRadius,
-              bgColor: bgColor,
-              enableBorderSide: borderSide),
+          data: textFieldThemeData(radius: borderRadius, bgColor: bgColor, enableBorderSide: borderSide),
           child: Scrollbar(
             trackVisibility: true,
             radius: const Radius.circular(20),
@@ -100,47 +96,33 @@ class CustomTextField extends StatelessWidget {
             child: SizedBox(
               // height: customDropdownTablet(),
               child: TextFormField(
+                style: kMedium1BlackTextStyle().apply(color: kPrimaryColor3),
                 obscureText: obscureText,
                 textAlign: TextAlign.left,
                 controller: controller,
-                focusNode:
-                    disableFocusNode ? AlwaysDisabledFocusNode() : focusNode,
+                focusNode: disableFocusNode ? AlwaysDisabledFocusNode() : focusNode,
                 autofocus: autofocus,
-                textCapitalization: isSentence
-                    ? TextCapitalization.sentences
-                    : TextCapitalization.none,
-                keyboardType: isNumeric
-                    ? TextInputType.number
-                    : keyboardType ?? TextInputType.text,
+                textCapitalization: isSentence ? TextCapitalization.sentences : TextCapitalization.none,
+                keyboardType: isNumeric ? TextInputType.number : keyboardType ?? TextInputType.text,
                 textInputAction: textInputAction ?? TextInputAction.next,
                 maxLength: maxLength ?? (isNumeric ? 10 : maxLength),
-                validator: isMandatory && validator == null
-                    ? validateIsNoEmpty
-                    : validator,
+                validator: isMandatory && validator == null ? validateIsNoEmpty : validator,
                 maxLines: maxLines,
                 minLines: minLines,
                 onChanged: onChanged,
                 enabled: enabled,
                 showCursor: showCursor,
-                inputFormatters: isNumeric
-                    ? [FilteringTextInputFormatter.digitsOnly]
-                    : inputFormatters,
-                enableInteractiveSelection: disableFocusNode == true
-                    ? false
-                    : enableInteractiveSelection,
+                inputFormatters: isNumeric ? [FilteringTextInputFormatter.digitsOnly] : inputFormatters,
+                enableInteractiveSelection: disableFocusNode == true ? false : enableInteractiveSelection,
                 onTap: onTap,
                 initialValue: initialValue,
                 decoration: InputDecoration(
                   counterText: '',
-                  suffixIcon: isDatePicker
-                      ? const Icon(Icons.calendar_month_sharp,
-                          color: kBlackColor)
-                      : suffixIcon,
+                  suffixIcon: isDatePicker ? const Icon(Icons.calendar_month_sharp, color: kBlackColor) : suffixIcon,
                   prefixIcon: prefixIcon,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(35.0)),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(35.0)),
                   hintText: hintText.isEmpty ? labelText : hintText,
-                  hintStyle: kNormal1BlackTextStyle(color: kGreyColor6),
+                  hintStyle: kNormal1BlackTextStyle(color: /*kGreyColor6*/ kPrimaryColor3),
                   contentPadding: kEdgeInsetsSymmetricHV(
                       h: 3,
                       v: maxLines > 1
@@ -166,19 +148,11 @@ class CustomTextField extends StatelessWidget {
 
   Widget _label(String title) {
     return Padding(
-      padding: labelPadding ??
-          kEdgeInsetsOnly(
-              bottom: 2,
-              top: 4,
-              left: borderRadius != null ? (borderRadius! > 20 ? 2 : 1) : 1),
+      padding: labelPadding ?? kEdgeInsetsOnly(bottom: 2, top: 4, left: borderRadius != null ? (borderRadius! > 20 ? 2 : 1) : 1),
       child: RichText(
         text: TextSpan(
             text: title,
-            children: [
-              TextSpan(
-                  text: isMandatory ? ' *' : '',
-                  style: TextStyle(color: Colors.red.shade700))
-            ],
+            children: [TextSpan(text: isMandatory ? ' *' : '', style: TextStyle(color: Colors.red.shade700))],
             style: kMedium1BlackTextStyle(color: appBlue)),
       ),
     );

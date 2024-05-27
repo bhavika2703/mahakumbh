@@ -15,9 +15,9 @@ import 'data_services/my_http_overrides.dart';
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
 
-  HttpOverrides.global = MyHttpOverrides();
+  // HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }
 
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         ),
         navigatorKey: navigatorKey,
         home: const SplashScreen(),
-        // builder: EasyLoading.init(),
+        // builder: EasyLoading.init(),-
         routes: AppRoutes.getRoutes(),
       ),
     );

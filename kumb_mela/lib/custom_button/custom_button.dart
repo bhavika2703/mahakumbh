@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         padding: kEdgeInsetsSymmetricHV(v: 3),
         decoration: BoxDecoration(
-          color: appBlue,
+          color: kPrimaryOrangeColor,
           borderRadius: kBorderRadius(5),
           // boxShadow: [
           //   BoxShadow(

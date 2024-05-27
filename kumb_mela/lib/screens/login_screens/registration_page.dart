@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kumb_mela/constatns.dart';
-import 'package:kumb_mela/custom_button/custom_button.dart';
 import 'package:kumb_mela/custom_button/custom_button_register.dart';
 import 'package:kumb_mela/theme/padding.dart';
 import 'package:kumb_mela/utility/widgets/app_constant.dart';
@@ -40,7 +39,7 @@ class _SignUpFormState extends State<SignUpForm> {
   bool _isProgress = false;
   String? _selectedCountryCode = '+91';
   String? _selectedLanguage;
-  List<String> _languages = ['English', 'Hindi', 'Spanish', 'French', 'German'];
+  final List<String> _languages = ['English', 'Hindi', 'Spanish', 'French', 'German'];
 
   @override
   Widget build(BuildContext context) {
@@ -68,39 +67,38 @@ class _SignUpFormState extends State<SignUpForm> {
               ],
             ),
           ),
-          Text(
+          const Text(
             'Join our community by creating an account.\nIt\'s quick and secure.',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.grey),
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               suffixIcon: Icon(Icons.person_outline),
               labelText: 'First Name',
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               suffixIcon: Icon(Icons.person_outline),
               labelText: 'Last Name',
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Row(
             children: [
               Container(
                 width: 80,
                 child: DropdownButtonFormField<String>(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
                   value: _selectedCountryCode,
-                  items: <String>['+91', '+1', '+44']
-                      .map<DropdownMenuItem<String>>((String value) {
+                  items: <String>['+91', '+1', '+44'].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -113,10 +111,10 @@ class _SignUpFormState extends State<SignUpForm> {
                   },
                 ),
               ),
-              SizedBox(width: 10.0),
+              const SizedBox(width: 10.0),
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     suffixIcon: Icon(Icons.phone),
                     labelText: 'Mobile Number',
                     border: OutlineInputBorder(),
@@ -131,9 +129,9 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ],
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           DropdownButtonFormField<String>(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               suffixIcon: Icon(Icons.language),
               labelText: 'Language',
               border: OutlineInputBorder(),
@@ -151,25 +149,25 @@ class _SignUpFormState extends State<SignUpForm> {
               });
             },
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               suffixIcon: Icon(Icons.email_outlined),
               labelText: 'Email Address',
               border: OutlineInputBorder(),
             ),
             keyboardType: TextInputType.emailAddress,
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               suffixIcon: Icon(Icons.lock_outline),
               labelText: 'Password',
               border: OutlineInputBorder(),
             ),
             obscureText: true,
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
           CustomButton1(
               title: AppConstant.RegisterButtonText,
               onPressed: () {
@@ -177,16 +175,16 @@ class _SignUpFormState extends State<SignUpForm> {
                   Register();
                 }
               }),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Already have an account? '),
+              const Text('Already have an account? '),
               GestureDetector(
                 onTap: () {
                   // Handle Register navigation
                 },
-                child: Text(
+                child: const Text(
                   'Register',
                   style: TextStyle(
                     color: Colors.blue,
@@ -202,10 +200,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   void Register() async {
-    var model = {
-      "username": _firstnameController.text,
-      "password": _lastnameController.text
-    };
+    var model = {"username": _firstnameController.text, "password": _lastnameController.text};
     setProgress(true);
     // try {
     //   final response = await KhumabMelaApis.Register(model);

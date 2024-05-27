@@ -10,10 +10,13 @@ class Assets {
 
   // static String icSplash = '${assetLogo}logo.png';
   static String icSplash = '${assetImages}splash.jpg';
+  static String icContact = '${assetImages}contact.png';
   static String icRegistration = '${assetDrawerIcons}ic_registration.jpg';
-  static String icUserPlaceHolder = '${assetImages}splash.jpg';
+  static String icUserPlaceHolder = '${assetImages}ic_placeHolder.png';
+  static String icColorDrawer = '${assetImages}color_drawer.png';
   static String icDrawerIcon = '${assetDrawerIcons}drawer_icon.png';
   static String icFile = '${assetDrawerIcons}drawer_icon.png';
+  static String icAartiMessage = '${assetImages}ic_aarti_image.png';
 }
 
 class StringConstant {
