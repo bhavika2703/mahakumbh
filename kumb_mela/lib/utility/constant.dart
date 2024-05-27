@@ -17,6 +17,9 @@ class Assets {
   static String icDrawerIcon = '${assetDrawerIcons}drawer_icon.png';
   static String icFile = '${assetDrawerIcons}drawer_icon.png';
   static String icAartiMessage = '${assetImages}ic_aarti_image.png';
+  // static String icSplash = "${assetImages}splash.jpg";
+  static String logo = "${assetImages}logo.png";
+  static String animation = "${assetImages}Animation.png";
 }
 
 class StringConstant {

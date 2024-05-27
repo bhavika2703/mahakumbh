@@ -2,8 +2,9 @@
 import 'package:kumb_mela/utility/size_config.dart';
 
 import '../theme/navigator.dart';
+import 'Utility/constant.dart';
 import 'app_routes.dart';
-import 'constatns.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

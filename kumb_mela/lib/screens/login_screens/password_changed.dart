@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kumb_mela/colors/light_colors.dart';
-import 'package:kumb_mela/constatns.dart';
-import 'package:kumb_mela/custom_button/custom_button.dart';
+ import 'package:kumb_mela/custom_button/custom_button.dart';
 import 'package:kumb_mela/theme/navigator.dart';
 import 'package:kumb_mela/theme/padding.dart';
 import 'package:kumb_mela/theme/text_style.dart';
 import 'package:kumb_mela/utility/size_config.dart';
 import 'package:kumb_mela/utility/widgets/app_constant.dart';
 
+import '../../Utility/constant.dart';
 import '../../utility/app_bar_widget.dart';
 import '../dashboard_screens/home_page.dart';
 

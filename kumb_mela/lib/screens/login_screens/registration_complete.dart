@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kumb_mela/colors/light_colors.dart';
-import 'package:kumb_mela/constatns.dart';
-import 'package:kumb_mela/other_pages/splash_screen.dart';
+ import 'package:kumb_mela/other_pages/splash_screen.dart';
 import 'package:kumb_mela/theme/padding.dart';
 import 'package:kumb_mela/theme/text_style.dart';
 import 'package:kumb_mela/utility/size_config.dart';
+
+import '../../Utility/constant.dart';
 
 class RegistrationComplete extends StatefulWidget {
   const RegistrationComplete({super.key});
