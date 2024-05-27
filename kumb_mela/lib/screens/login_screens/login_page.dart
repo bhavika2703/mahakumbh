@@ -5,6 +5,9 @@ import 'package:kumb_mela/colors/light_colors.dart';
 import 'package:kumb_mela/constatns.dart';
 import 'package:kumb_mela/custom_button/custom_button.dart';
 import 'package:kumb_mela/other_pages/splash_screen.dart';
+import 'package:kumb_mela/screens/login_screens/password_changed.dart';
+import 'package:kumb_mela/screens/login_screens/registration_page.dart';
+import 'package:kumb_mela/theme/navigator.dart';
 import 'package:kumb_mela/theme/padding.dart';
 import 'package:kumb_mela/theme/text_style.dart';
 import 'package:kumb_mela/utility/size_config.dart';
@@ -36,148 +39,150 @@ class _LoginState extends State<Login> {
     SizeConfig().init(context);
 
     return Scaffold(
-         body: Container(
-           decoration:  kGradientBoxDecoration(),
-           child: Stack(
-            alignment: Alignment.center,
+        body: Container(
+      decoration: kGradientBoxDecoration(),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Column(
             children: [
-              Column(
-                children: [
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: kEdgeInsetsAll(2),
-                        child: Form(
-                          key: _formGlobalKey,
-                          child: Column(
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: kEdgeInsetsAll(2),
+                    child: Form(
+                      key: _formGlobalKey,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 8,
+                          ),
+                          // CircleAvatar(
+                          //   backgroundImage: AssetImage(Assets.icLoginImage),
+                          //   radius: 70.0,
+                          // ),
+
+                          Padding(
+                            padding: kEdgeInsetsAll(2),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Center(
+                                child: Image.asset(
+                                  Assets.logo,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: kEdgeInsetsAll(3),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Center(
+                                child: Text("Hey,Hello",
+                                    style: kMediumBlackTextStyle().apply(
+                                        fontSizeDelta: 10,
+                                        color: kBlueGreyColor4)),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: kEdgeInsetsAll(2),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Center(
+                                child: Text(
+                                    "Before you begin, let's ensure it's you.",
+                                    style: kMediumBlackTextStyle().apply(
+                                        fontSizeDelta: 1,
+                                        color: DescriptionGreyColor)),
+                              ),
+                            ),
+                          ),
+                          kSizedBox(height: 2),
+
+                          CustomTextField(
+                              bgColor: kBlackColor,
+                              controller: _nameController,
+                              suffixIcon: IconButton(
+                                icon: const Icon(Icons.person_3_rounded),
+                                onPressed: () {},
+                              ),
+                              // labelText: "UserName",
+                              isMandatory: true,
+                              hintText: "Mobile Number /Email"),
+                          kSizedBox(height: 5),
+                          CustomTextField(
+                            bgColor: kBlackColor,
+                            suffixIcon: IconButton(
+                              icon: const Icon(Icons.lock_outline_rounded),
+                              onPressed: () {},
+                            ),
+                            keyboardType: TextInputType.visiblePassword,
+                            // suffixIcon: _widgetVisiblePassword(),
+                            obscureText: _isPasswordVisible,
+                            controller: _passwordController,
+                            // labelText: "Password",
+                            isMandatory: true,
+                            hintText: ' Password',
+                          ),
+                          kSizedBox(height: 2),
+                          _buildRememberMeRow(context),
+                          kSizedBox(height: 5),
+                          CustomButton(
+                              title: AppConstant.loginButtonText,
+                              onPressed: () {
+                                if (_formGlobalKey.currentState!.validate()) {
+                                  login();
+                                }
+                              }),
+                          kSizedBox(height: 3),
+                          Text(
+                            "Or",
+                            style: kMediumBlackTextStyle()
+                                .apply(color: DescriptionGreyColor),
+                          ),
+                          kSizedBox(height: 6),
+                          Row(
                             children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 8,
-                              ),
-                              // CircleAvatar(
-                              //   backgroundImage: AssetImage(Assets.icLoginImage),
-                              //   radius: 70.0,
-                              // ),
-
                               Padding(
-                                padding: kEdgeInsetsAll(2),
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Center(
-                                    child: Image.asset(
-                                      Assets.logo,
-                                    ),
-                                  ),
+                                padding: EdgeInsets.only(left: 85),
+                                child: Text(
+                                  "Don't have an account? ",
+                                  style: kMediumBlackTextStyle()
+                                      .apply(color: DescriptionGreyColor),
                                 ),
                               ),
-                              Padding(
-                                padding: kEdgeInsetsAll(3),
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Center(
-                                    child: Text("Hey,Hello",
-                                        style: kMediumBlackTextStyle().apply(
-                                            fontSizeDelta: 10,
-                                            color: kBlueGreyColor4)),
-                                  ),
+                              GestureDetector(
+                                onTap: () {
+                                  kNavigator(context, Register());
+                                },
+                                child: Text(
+                                  "Register",
+                                  style: kMediumBlackTextStyle()
+                                      .apply(color: kBlueColor),
                                 ),
-                              ),
-                              Padding(
-                                padding: kEdgeInsetsAll(2),
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Center(
-                                    child: Text(
-                                        "Before you begin, let's ensure it's you.",
-                                        style: kMediumBlackTextStyle().apply(
-                                            fontSizeDelta: 1,
-                                            color: DescriptionGreyColor)),
-                                  ),
-                                ),
-                              ),
-                              kSizedBox(height: 2),
-
-                              CustomTextField(
-                                  bgColor: kBlackColor,
-                                  controller: _nameController,
-                                  suffixIcon: IconButton(
-                                    icon: const Icon(Icons.person_3_rounded),
-                                    onPressed: () {},
-                                  ),
-                                  // labelText: "UserName",
-                                  isMandatory: true,
-                                  hintText: "Mobile Number /Email"),
-                              kSizedBox(height: 5),
-                              CustomTextField(
-                                bgColor: kBlackColor,
-                                suffixIcon: IconButton(
-                                  icon: const Icon(Icons.lock_outline_rounded),
-                                  onPressed: () {},
-                                ),
-                                keyboardType: TextInputType.visiblePassword,
-                                // suffixIcon: _widgetVisiblePassword(),
-                                obscureText: _isPasswordVisible,
-                                controller: _passwordController,
-                                // labelText: "Password",
-                                isMandatory: true,
-                                hintText: ' Password',
-                              ),
-                              kSizedBox(height: 2),
-                              _buildRememberMeRow(context),
-                              kSizedBox(height: 5),
-                              CustomButton(
-                                  title: AppConstant.loginButtonText,
-                                  onPressed: () {
-                                    if (_formGlobalKey.currentState!.validate()) {
-                                      login();
-                                    }
-                                  }),
-                              kSizedBox(height: 3),
-                              Text(
-                                "Or",
-                                style: kMediumBlackTextStyle()
-                                    .apply(color: DescriptionGreyColor),
-                              ),
-                              kSizedBox(height: 6),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 85),
-                                    child: Text(
-                                      "Don't have an account? ",
-                                      style: kMediumBlackTextStyle()
-                                          .apply(color: DescriptionGreyColor),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Text(
-                                      "Register",
-                                      style: kMediumBlackTextStyle()
-                                          .apply(color: kBlueColor),
-                                    ),
-                                  )
-                                ],
                               )
                             ],
-                          ),
-                        ),
+                          )
+                        ],
                       ),
                     ),
                   ),
-                  // CustomButton(
-                  //     title: AppConstant.loginButtonText,
-                  //     onPressed: () {
-                  //       if (_formGlobalKey.currentState!.validate()) {
-                  //         login();
-                  //       }
-                  //     }),
-                ],
+                ),
               ),
-              if (_isProgress) const SplashScreen()
+              // CustomButton(
+              //     title: AppConstant.loginButtonText,
+              //     onPressed: () {
+              //       if (_formGlobalKey.currentState!.validate()) {
+              //         login();
+              //       }
+              //     }),
             ],
-                   ),
-         ));
+          ),
+          if (_isProgress) const SplashScreen()
+        ],
+      ),
+    ));
   }
 
   Widget _widgetVisiblePassword() {

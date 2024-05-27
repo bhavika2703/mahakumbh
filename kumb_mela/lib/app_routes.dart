@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:kumb_mela/screens/dashboard_screens/home_page.dart';
 import 'package:kumb_mela/screens/login_screens/forget_password.dart';
+import 'package:kumb_mela/screens/login_screens/login_page.dart';
 import 'package:kumb_mela/screens/login_screens/otp_screen.dart';
 import 'package:kumb_mela/screens/login_screens/registration_complete.dart';
 
@@ -20,7 +21,7 @@ class AppRoutes {
       // dashBoardRoute: (ctx) => const HomeScreen(),
       registerPageRoute: (ctx) => const RegistrationComplete(),
       homeRoute: (ctx) => const HomePage(),
-      forgotPasswordRoute: (ctx) => const ForgetPassword(),
+      forgotPasswordRoute: (ctx) => const Login(),
       forgotPasswordRouteOtp: (ctx) => const OtpScreen(),
       // caseViewRoute: (ctx) => const CaseViewPage(),
       // loginPageRoute: (ctx) => const LoginScreen(),
