@@ -4,7 +4,7 @@ import '../theme/padding.dart';
 
 // Color kPrimaryColor = const Color(0xff106467);
 // Color kPrimaryColor = const Color(0xff24695c);
-Color kPrimaryColor = const Color(0xff0D41E1);
+Color kPrimaryColor = const Color(0xff0054E5);
 // Color kPrimaryColor2 = const Color(0xff60a89b);
 Color kPrimaryColor3 = const Color(0xCCEBF8FF);
 Color kPrimaryDarkColor = const Color(0xff17443c);
@@ -43,7 +43,7 @@ const kkTitleBoxColor = Color(0xffffffff);
 const kButtonColor = Color(0xff1c2834);
 const kSecondaryTextColor = Color(0xff004d40);
 
-final kGreyColor = Colors.grey.shade50;
+// final kGreyColor = Colors.grey.shade50;
 final kGreyColor1 = Colors.grey.shade100;
 final kGreyColor2 = Colors.grey.shade200;
 final kGreyColor3 = Colors.grey.shade300;
@@ -53,6 +53,8 @@ final kGreyColor6 = Colors.grey.shade600;
 final kGreyColor7 = Colors.grey.shade700;
 final kGreyColor8 = Colors.grey.shade800;
 final kGreyColor9 = Colors.grey.shade900;
+const kGreyColor10 = Color(0xff858585);
+const kGreyColor = Color(0xff3A3A3A);
 
 final kBlueGreyColor = Colors.blueGrey.shade50;
 final kBlueGreyColor1 = Colors.blueGrey.shade100;

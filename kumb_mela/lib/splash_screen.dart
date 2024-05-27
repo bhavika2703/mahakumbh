@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
 import 'package:kumb_mela/utility/size_config.dart';
 
 import '../theme/navigator.dart';

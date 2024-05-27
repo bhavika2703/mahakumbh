@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:kumb_mela/screens/login_screens/forget_password.dart';
+import 'package:kumb_mela/screens/login_screens/otp_screen.dart';
 import 'package:kumb_mela/screens/profile_page.dart';
 
 
