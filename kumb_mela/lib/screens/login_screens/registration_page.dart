@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kumb_mela/custom_button/custom_button_register.dart';
+import 'package:kumb_mela/screens/login_screens/login_otp_screen.dart';
 import 'package:kumb_mela/screens/login_screens/login_page.dart';
 import 'package:kumb_mela/screens/login_screens/otp_screen.dart';
 import 'package:kumb_mela/theme/navigator.dart';
@@ -43,7 +44,13 @@ class _SignUpFormState extends State<SignUpForm> {
   bool _isProgress = false;
   String? _selectedCountryCode = '+91';
   String? _selectedLanguage;
-  final List<String> _languages = ['English', 'Hindi', 'Spanish', 'French', 'German'];
+  final List<String> _languages = [
+    'English',
+    'Hindi',
+    'Spanish',
+    'French',
+    'German'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +112,8 @@ class _SignUpFormState extends State<SignUpForm> {
                       border: OutlineInputBorder(),
                     ),
                     value: _selectedCountryCode,
-                    items: <String>['+91', '+1', '+44'].map<DropdownMenuItem<String>>((String value) {
+                    items: <String>['+91', '+1', '+44']
+                        .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
@@ -179,7 +187,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 title: AppConstant.RegisterButtonText,
                 onPressed: () {
                   if (_formGlobalKey.currentState!.validate()) {
-                    kNavigator(context, OtpScreen());
+                    kNavigator(context, OtpScreen1());
                   }
                 }),
             const SizedBox(height: 20.0),
@@ -208,7 +216,10 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   void Register() async {
-    var model = {"username": _firstnameController.text, "password": _lastnameController.text};
+    var model = {
+      "username": _firstnameController.text,
+      "password": _lastnameController.text
+    };
     setProgress(true);
     // try {
     //   final response = await KhumabMelaApis.Register(model);
