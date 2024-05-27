@@ -107,7 +107,7 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
                               CustomButton(
                                   title: AppConstant.ConfirmPasswordButtonText,
                                   onPressed: () {
-                                    SwitchController().isSwitched;
+                                    // SwitchController().isSwitched;
 
                                     // kNavigator(context, const DashBoardPage());
                                     // if (_formGlobalKey.currentState!.validate()) {
