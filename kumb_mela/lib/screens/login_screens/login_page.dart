@@ -5,6 +5,7 @@ import 'package:kumb_mela/colors/light_colors.dart';
 import 'package:kumb_mela/constatns.dart';
 import 'package:kumb_mela/custom_button/custom_button.dart';
 import 'package:kumb_mela/other_pages/splash_screen.dart';
+import 'package:kumb_mela/screens/dashboard_screens/home_page.dart';
 import 'package:kumb_mela/screens/login_screens/password_changed.dart';
 import 'package:kumb_mela/screens/login_screens/registration_page.dart';
 import 'package:kumb_mela/theme/navigator.dart';
@@ -132,7 +133,7 @@ class _LoginState extends State<Login> {
                               title: AppConstant.loginButtonText,
                               onPressed: () {
                                 if (_formGlobalKey.currentState!.validate()) {
-                                  login();
+                                  kNavigator(context, HomePage());
                                 }
                               }),
                           kSizedBox(height: 3),
