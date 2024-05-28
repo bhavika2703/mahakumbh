@@ -61,6 +61,7 @@ final kGreyColor8 = Colors.grey.shade800;
 final kGreyColor9 = Colors.grey.shade900;
 const kGreyColor10 = Color(0xff858585);
 const kGreyColor = Color(0xff3A3A3A);
+const kDarkGreyColor = Color(0xff1F1F1F);
 
 final kBlueGreyColor = Colors.blueGrey.shade50;
 final kBlueGreyColor1 = Colors.blueGrey.shade100;
@@ -131,20 +132,27 @@ BoxDecoration kBoxDecoration({Color? color, double? radius, BoxShape? shape}) {
     // shape: shape ?? BoxShape.rectangle,
     color: color ?? kWhiteColor,
     borderRadius: BorderRadius.circular(radius ?? 8),
-    boxShadow: [kCardShadow],
+    boxShadow: const [kCardShadow],
   );
 }
 
-BoxDecoration kGradientBoxDecoration({Color? color, double? radius, BoxShape? shape}) {
-  return const BoxDecoration(
-      gradient: LinearGradient(
-    colors: [kBlackColor, kGreyColor],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  ));
+BoxDecoration kGradientBoxDecoration({Color? color, double? radius, BoxShape? shape, value = false}) {
+  return BoxDecoration(
+      // color: value ? null : kWhiteColor,
+      gradient: value
+          ? const LinearGradient(
+              colors: [kBlackColor, kGreyColor],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            )
+          : const LinearGradient(
+              colors: [kWhiteColor, kWhiteColor],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ));
 }
 
-final kCardShadow = BoxShadow(color: Colors.grey.shade300, offset: const Offset(0, 3), blurRadius: 5);
+const kCardShadow = BoxShadow(color: kGreyColor10, offset: Offset(0, 3), blurRadius: 5);
 
 Widget kBottomSheetHorizontalLine({color}) {
   return Container(

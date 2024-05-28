@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
@@ -5,14 +7,14 @@ import 'package:kumb_mela/theme/theme_controller.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 import 'app_routes.dart';
+import 'data_services/my_http_overrides.dart';
 import 'other_pages/splash_screen.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-
-  // HttpOverrides.global = MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = MyHttpOverrides();
   runApp(MyApp());
 }
 

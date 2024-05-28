@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kumb_mela/colors/extenstion.dart';
 import 'package:kumb_mela/colors/light_colors.dart';
- import 'package:kumb_mela/custom_button/custom_button.dart';
+import 'package:kumb_mela/custom_button/custom_button.dart';
 import 'package:kumb_mela/other_pages/splash_screen.dart';
-import 'package:kumb_mela/screens/dashboard_screens/home_page.dart';
 import 'package:kumb_mela/screens/login_screens/forget_password.dart';
 import 'package:kumb_mela/screens/login_screens/registration_page.dart';
 import 'package:kumb_mela/theme/navigator.dart';
@@ -14,6 +13,7 @@ import 'package:kumb_mela/utility/widgets/app_constant.dart';
 import 'package:kumb_mela/utility/widgets/custom_fields/custom_text_field.dart';
 
 import '../../Utility/constant.dart';
+import '../dashboard_screens/home_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -104,7 +104,10 @@ class _LoginState extends State<Login> {
                             CustomTextField(
                               bgColor: kBlackColor,
                               suffixIcon: IconButton(
-                                icon: const Icon(Icons.lock_outline_rounded,color: kGreyColor10,),
+                                icon: const Icon(
+                                  Icons.lock_outline_rounded,
+                                  color: kGreyColor10,
+                                ),
                                 onPressed: () {},
                               ),
                               keyboardType: TextInputType.visiblePassword,
@@ -122,7 +125,7 @@ class _LoginState extends State<Login> {
                                 title: AppConstant.loginButtonText,
                                 onPressed: () {
                                   if (_formGlobalKey.currentState!.validate()) {
-                                    kNavigator(context, HomePage());
+                                    kNavigator(context, const HomePage());
                                   }
                                 }),
                             kSizedBox(height: 3),
@@ -255,7 +258,7 @@ class _LoginState extends State<Login> {
                 child: Text("Forgot Password?", style: kMediumBlackTextStyle().apply(color: kGreyColor10)),
               ),
             ),
-          ).ripple((){
+          ).ripple(() {
             kNavigator(context, const ForgetPassword());
           }),
         ],

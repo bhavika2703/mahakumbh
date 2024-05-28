@@ -1,11 +1,16 @@
 // In a separate file (e.g., theme_controller.dart)
 
 import 'package:flutter/material.dart';
- import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:kumb_mela/colors/light_colors.dart';
 
 class ThemeController extends GetxController {
   final RxBool isDarkMode = RxBool(false); // Initially set to light mode
+
+  @override
+  void onReady() {
+    toggleTheme();
+  }
 
   void toggleTheme() {
     isDarkMode.value = !isDarkMode.value;
@@ -17,7 +22,7 @@ class ThemeController extends GetxController {
 class LightTheme {
   static ThemeData light = ThemeData(
     brightness: Brightness.light,
-    primaryColor:kPrimaryOrangeColor,
+    primaryColor: kPrimaryOrangeColor,
     primarySwatch: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
     textTheme: const TextTheme(),
@@ -45,15 +50,12 @@ class LightTheme {
 // dividerTheme: const DividerThemeData(color: Colors.black12),
 // ),
 
-
-
 class DarkTheme {
   static ThemeData dark = ThemeData(
     brightness: Brightness.dark,
     primaryColor: Colors.white,
     primarySwatch: Colors.grey,
     scaffoldBackgroundColor: Colors.black,
-    textTheme: const TextTheme(
-    ),
+    textTheme: const TextTheme(),
   );
 }
